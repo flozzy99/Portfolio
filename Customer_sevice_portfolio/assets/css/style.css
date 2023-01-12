@@ -21,6 +21,10 @@
     font-family: "poppins", sans-serif;
 }
 
+.hidden {
+    display: none;
+}
+
 body {
     width: 100vw;
     min-height: 100vh;
@@ -29,8 +33,6 @@ body {
 }
 
 .main-container {
-    /* display: flex;
-    flex-direction: row; */
     min-height: 100vh;
 }
 
@@ -43,11 +45,13 @@ body {
     left: 0;
     width: 270px;
     height: 100%;
-    background-color: #fff;
+    padding: 30px;
+    background-color: var(--bg-black-100);
+    border-right: 1px solid var(--bg-black-50);
+    box-shadow: 7.8px 0px 2.4px rgba(0, 0, 0, 0.006), 17.2px 0px 5.2px rgba(0, 0, 0, 0.009), 28.8px 0px 8.7px rgba(0, 0, 0, 0.01), 43.4px 0px 13.1px rgba(0, 0, 0, 0.01), 62.6px 0px 18.9px rgba(0, 0, 0, 0.011), 88.6px 0px 26.8px rgba(0, 0, 0, 0.011), 125.7px 0px 37.9px rgba(0, 0, 0, 0.011), 182.5px 0px 55.1px rgba(0, 0, 0, 0.011), 281.3px 0px 84.9px rgba(0, 0, 0, 0.01), 500px 0px 151px rgba(0, 0, 0, 0.01);
     display: flex;
     justify-content: center;
     align-items: center;
-    /* padding: 30px; */
     z-index: 10;
 }
 
@@ -57,91 +61,91 @@ aside nav {}
 
 aside .logo {
     position: absolute;
-    font-size: 30px;
     top: 50px;
+    font-size: 30px;
     text-align: center;
 }
 
 aside .logo a {
-    text-decoration: none;
-    color: var(--bg-text-900);
-    letter-spacing: 3px;
-    font-size: 20px;
-    padding: 15px 20px;
-    font-weight: 600;
     position: relative;
+    color: var(--bg-text-900);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    padding: 15px 20px;
+    text-decoration: none;
 }
 
 aside .logo a span {
     font-size: 30px;
-    font-family: 'Dancing Script', cursive;
     font-weight: 900;
+    font-family: 'Dancing Script', cursive;
     margin-right: 5px;
 }
 
 aside .logo a::before {
     content: '';
     position: absolute;
-    height: 20px;
-    width: 20px;
-    border-bottom: 5px solid var(--skin-clr);
-    border-left: 5px solid var(--skin-clr);
     bottom: -20px;
     left: -20px;
+    width: 20px;
+    height: 20px;
+    border-bottom: 5px solid var(--skin-clr);
+    border-left: 5px solid var(--skin-clr);
 }
 
 aside .logo a::after {
     content: '';
     position: absolute;
-    height: 20px;
-    width: 20px;
-    border-top: 5px solid var(--skin-clr);
-    border-right: 5px solid var(--skin-clr);
     top: -20px;
     right: -20px;
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid var(--skin-clr);
+    border-right: 5px solid var(--skin-clr);
 }
 
 .nav-toggler {
+    position: fixed;
+    top: 20px;
+    left: 300px;
     width: 45px;
     height: 4px;
-    border: 1px solid var(--bg-black-50);
-    cursor: pointer;
-    left: 300px;
-    top: 20px;
-    border-radius: 5px;
     background-color: var(--bg-black-100);
-    position: fixed;
+    border: 1px solid var(--bg-black-50);
+    border-radius: 5px;
     display: none;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .nav-toggler span {
-    height: 2px;
-    width: 10px;
-    background-color: var(--skin-clr);
     position: relative;
+    width: 10px;
+    height: 2px;
+    background-color: var(--skin-clr);
     display: inline-block;
 }
 
 .nav-toggler span:before {
     content: '';
-    height: 2px;
-    width: 18px;
-    background-color: var(--skin-clr);
     position: absolute;
     top: -6px;
     left: 0;
+    width: 18px;
+    height: 2px;
+    background-color: var(--skin-clr);
 }
 
 .nav-toggler span:after {
     content: '';
-    height: 2px;
-    width: 18px;
-    background-color: var(--skin-clr);
     position: absolute;
     top: 6px;
     left: 0;
+    width: 18px;
+    height: 2px;
+    background-color: var(--skin-clr);
 }
 
 nav ul {
@@ -150,19 +154,20 @@ nav ul {
 }
 
 nav ul li {
-    padding: 20px 0;
+    position: relative;
     width: 9rem;
     display: block;
-    position: relative;
+    padding: 20px 0;
+    cursor: pointer;
 }
 
 nav ul li::after {
     content: "";
     position: absolute;
+    bottom: 10px;
+    left: 0;
     width: 27%;
     height: 2px;
-    left: 0;
-    bottom: 10px;
     background-color: var(--skin-clr);
     transition: ease-out 0.4s;
 }
@@ -171,19 +176,23 @@ nav ul li:hover:after {
     width: 100%;
 }
 
-nav ul li a:hover {
+nav ul li:hover a {
+    color: var(--skin-clr);
+}
+
+nav ul li a.active {
     color: var(--skin-clr);
 }
 
 nav ul li a {
-    text-decoration: none;
     color: var(--clr2);
     font-size: 20px;
+    text-decoration: none;
 }
 
 nav ul li a i {
-    margin-right: 10px;
     width: 22px;
+    margin-right: 10px;
 }
 
 
@@ -192,40 +201,33 @@ nav ul li a i {
 
 /* Main Start */
 
-main {
-    background-color: var(--primary-clr);
-    height: 100vh;
-}
-
 .section {
-    background-color: var(--bg-black-900);
-    min-height: 100vh;
-    display: block;
     position: fixed;
     left: 270px;
-    padding: 0 15px;
-    top: 0;
     right: 0;
+    min-height: 100vh;
+    background-color: var(--bg-black-900);
+    display: block;
+    padding: 0 15px;
     opacity: 1;
-    z-index: 0;
 }
 
 .container {
     max-width: 1100px;
     width: 100%;
     height: 100vh;
-    margin: auto;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
-.container .row {
+.row {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 15px;
-    margin-right: 15px;
-    position: relative;
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
 .padd-15 {
@@ -248,36 +250,37 @@ main {
 }
 
 .home-img {
+    position: relative;
     max-width: 40%;
     flex: 0 0 40%;
     text-align: center;
-    position: relative;
 }
 
-.home-img svg {
+
+/* .home-img svg {
     position: absolute;
-    z-index: -1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
     width: 650px;
+    transform: translate(-50%, -40%);
     filter: drop-shadow(191px 52px 500px rgba(0, 0, 0, 1));
-}
+    z-index: -1;
+} */
 
 .home-img img {
-    width: 320px;
-    z-index: 2;
     position: relative;
+    width: 320px;
     border-radius: 20px;
+    z-index: 2;
 }
 
 .home-img:after {
     content: "";
     position: absolute;
+    top: -60px;
+    left: 40px;
     width: 105px;
     height: 105px;
-    top: -60px;
-    left: 20px;
     border-top: 10px solid var(--skin-clr);
     border-left: 10px solid var(--skin-clr);
     border-radius: 15px;
@@ -286,10 +289,10 @@ main {
 .home-img:before {
     content: "";
     position: absolute;
+    bottom: -60px;
+    right: 40px;
     width: 105px;
     height: 105px;
-    bottom: -60px;
-    right: 20px;
     border-bottom: 10px solid var(--skin-clr);
     border-right: 10px solid var(--skin-clr);
     border-radius: 15px;
@@ -297,11 +300,12 @@ main {
 
 .home-info .wlc p,
 .profession {
-    font-size: 35px;
     color: var(--bg-text-900);
+    font-size: 35px;
     font-weight: 700;
     font-family: "poppins", sans-serif;
     letter-spacing: 1.5px;
+    margin: 15px 0;
 }
 
 .name {
@@ -314,8 +318,13 @@ main {
 }
 
 .interduction {
-    font-weight: 600;
     color: var(--bg-text-700);
+    font-weight: 600;
+}
+
+.hire-me {
+    color: var(--bg-text-900);
+    text-decoration: none;
 }
 
 
